@@ -122,14 +122,13 @@ const TITLE = 'ナゾリンと あいことばの たび その6';
 const ANSWER = 'どらえもん';
 const KANAS = ['ど', 'ら', 'え', 'も', 'ん'];
 const STAR_ITEM = '*';            // ほしの かけら(いみの ない アイテム)
-const NUM_STARS = 2;
+const NUM_STARS = 1;
 const TEACHER_CODE = '1031';      // せんせいの かいじょコード
 const PENALTY_SEC = 20;           // にこにこ・きらきらで まちがえた ときの まちじかん
-const ROOMS = ['あゆみ1', 'あゆみ2', 'あゆみ3', 'のぞみ1', 'のぞみ2', 'ほほえみ', 'のびのびホール'];
+const ROOMS = ['あゆみ1', 'あゆみ2', 'あゆみ3', 'のぞみ1', 'のぞみ2', 'ほほえみ'];
 const ITEMS = ['ピアノの へや', 'テレビの へや', 'おとの でる いたの へや',
-               'たっきゅうだいの へや', 'ごろんと ねころべる へや', 'ベッドの ある へや',
-               'からだを うごかす ミッション'];
-const CODES = ['s7ka', 's2mb', 's9nc', 's4pd', 's6qe', 's3rf', 's8tg'];
+               'たっきゅうだいの へや', 'ごろんと ねころべる へや', 'ベッドの ある へや'];
+const CODES = ['s7ka', 's2mb', 's9nc', 's4pd', 's6qe', 's3rf'];
 const N = ROOMS.length;
 const COURSE_LABEL = { easy: 'にこにこコース', hard: 'きらきらコース', cerberus: 'シャイニングケルベロスコース' };
 
@@ -153,7 +152,6 @@ const QUESTIONS = {
       c:['つき','たいよう','くも','にじ','かみなり','ゆき','あめ','かぜ','ほし','ひこうき'], a:0 },
     { q:'ベッドで ねる まえに いう あいさつは?',
       c:['おやすみなさい','おはよう','こんにちは','いただきます','ごちそうさま','いってきます','ただいま','ありがとう','さようなら','ごめんなさい'], a:0 },
-    { mission:1, img:'ASTRO', q:'ミッション!<br><span style="color:#d4a017">うちゅうひこうしに へんしん!</span><br>ふわふわ むじゅうりょく あるきで<br>ホールを はんぶん あるこう!' },
   ],
   hard: [
     { media:'AUDIO_MUSIC', q:'うちゅうの 音楽を きいてね。<br>ちきゅうに いちばん ちかい「こうせい」<br>(じぶんで ひかる ほし)は?',
@@ -168,7 +166,6 @@ const QUESTIONS = {
       c:['つき','たいよう','かせい','もくせい','どせい','きんせい','すいせい','てんのうせい','かいおうせい','ほっきょくせい'], a:0 },
     { q:'たいようけいで いちばん 大きい わくせいは?',
       c:['もくせい','どせい','ちきゅう','かせい','きんせい','すいせい','てんのうせい','かいおうせい','つき','たいよう'], a:0 },
-    { mission:1, img:'ROCKETJUMP', q:'ミッション!<br><span style="color:#d4a017">ロケットジャンプ 10かい!</span><br>しゃがんで → りょうてを 上に とがらせて<br>おもいきり ジャンプ!' },
   ],
   cerberus: [
     { media:'AUDIO_MUSIC', input:1, hint:'3もじ',
@@ -189,12 +186,11 @@ const QUESTIONS = {
     { input:1, hint:'3もじ',
       q:'たいようから かぞえて <b>4ばんめ</b>の<br>わくせいの なまえを ひらがなで 入力せよ。',
       ans:['かせい','火星'] },
-    { mission:1, img:'SATELLITE', q:'ミッション!<br><span style="color:#d4a017">じんこうえいせいの ポーズ!</span><br>りょううでを よこに ひろげ、かたあしを うしろに あげて<br>10びょう バランス せよ。' },
   ],
 };
 
 // ===== ほぞん(iPadの Safariに きろく) ==================================
-const KEY = 'aikotoba6_state';
+const KEY = 'aikotoba6b_state';   // 2026-10-29 6か所に変更（古い7か所の記録を読まないようキーを変更）
 let st = null;   // { course, order, bag, p, lockUntil, missed:{} }
 function load() {
   try { const v = JSON.parse(localStorage.getItem(KEY)); if (v && v.course) return v; } catch (e) {}
